@@ -60,7 +60,9 @@ a:hover { text-decoration: underline; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.22); }
 
 /* ---------- Shell ---------- */
-.app-shell { display: flex; min-height: 100vh; }
+/* Desktop layout is preserved on every viewport: the shell keeps a desktop
+   minimum width and the page scrolls horizontally on small screens. */
+.app-shell { display: flex; min-height: 100vh; min-width: 1280px; }
 
 .sidebar {
   position: sticky;
@@ -235,9 +237,10 @@ a:hover { text-decoration: underline; }
 .panel-sub { color: var(--muted); font-size: 12.5px; margin-top: 3px; }
 
 /* ---------- KPI cards ---------- */
+/* Always exactly 4 columns so the key metrics never stack or shrink on mobile. */
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 22px;
 }
@@ -535,9 +538,6 @@ table.data .actions { display: flex; gap: 6px; justify-content: flex-end; }
 .recharts-tooltip-cursor { fill: rgba(255, 255, 255, 0.03); }
 .recharts-default-tooltip { border-radius: 10px !important; border: 1px solid var(--border-strong) !important; }
 
-@media (max-width: 1240px) { .chart-grid, .chart-grid.cols-3 { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 760px) { .chart-grid, .chart-grid.cols-2, .chart-grid.cols-3 { grid-template-columns: 1fr; } }
-
 /* ---------- Insights ---------- */
 .insights { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
 .insight {
@@ -743,12 +743,6 @@ footer { margin-top: 34px; color: var(--muted); font-size: 12px; text-align: cen
 }
 
 /* ---------- Misc ---------- */
+/* The sidebar never collapses into a hamburger menu — the desktop layout is
+   kept on every screen size (horizontal scrolling is provided by .app-shell). */
 .menu-btn { display: none; }
-@media (max-width: 900px) { .menu-btn { display: grid; } }
-
-@media (max-width: 900px) {
-  .sidebar { position: fixed; transform: translateX(-100%); transition: transform 0.2s ease; }
-  .sidebar.open { transform: none; box-shadow: 30px 0 80px rgba(0,0,0,0.5); }
-  .main { padding: 18px; }
-  .kpi-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
-}

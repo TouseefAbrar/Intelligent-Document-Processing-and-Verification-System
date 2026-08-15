@@ -58,6 +58,23 @@ class Settings(BaseSettings):
     # --- Database -------------------------------------------------------------
     DATABASE_URL: str = f"sqlite:///{BASE_DIR / 'ezitech.db'}"
 
+    # --- Auth / security --------------------------------------------------------
+    JWT_SECRET: str = ""
+    TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 30  # 30 days
+    RESET_TOKEN_EXPIRE_MINUTES: int = 60
+    # Public URL of the frontend used to build password-reset links. Falls back
+    # to the request Origin (same-origin deployments) automatically.
+    FRONTEND_URL: str = ""
+
+    # --- Email / SMTP (for Forgot Password) ------------------------------------
+    SMTP_HOST: str = ""
+    SMTP_PORT: int = 587
+    SMTP_USER: str = ""
+    SMTP_PASSWORD: str = ""
+    SMTP_FROM: str = ""
+    SMTP_FROM_NAME: str = "Verity.AI"
+    SMTP_USE_TLS: bool = True
+
     # --- OCR ------------------------------------------------------------------
     OCR_PROVIDER: str = "auto"  # auto | groq | tesseract | easyocr | pdf
     TESSERACT_CMD: str = "tesseract"
@@ -126,6 +143,10 @@ class Settings(BaseSettings):
         if not key or key.lower().startswith("your_") or key.lower() == "changeme":
             return False
         return True
+
+    @property
+    def smtp_configured(self) -> bool:
+        return bool(self.SMTP_HOST.strip() and self.SMTP_USER.strip() and self.SMTP_PASSWORD.strip())
 
 
 @lru_cache

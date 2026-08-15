@@ -10,7 +10,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import documents, health, submissions
+from app.api.routes import auth, documents, health, submissions
 from app.config import settings
 from app.core.logging import get_logger, setup_logging
 from app.database import ensure_schema, engine
@@ -44,6 +44,7 @@ app.add_middleware(
 )
 
 api_prefix = settings.API_PREFIX
+app.include_router(auth.router, prefix=api_prefix)
 app.include_router(health.router, prefix=api_prefix)
 app.include_router(documents.router, prefix=api_prefix)
 app.include_router(submissions.router, prefix=api_prefix)

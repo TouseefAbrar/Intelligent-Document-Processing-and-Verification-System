@@ -113,14 +113,42 @@ export interface SubmissionListRow {
   created_at: string;
 }
 
+export interface AuthUserOut {
+  name: string;
+  email: string;
+}
+
+export interface AuthResponseData {
+  user: AuthUserOut;
+  token: string;
+}
+
+export interface ForgotPasswordResponseData {
+  message: string;
+  reset_sent: boolean;
+  dev_reset_link: string | null;
+}
+
 const BASE = '/api/v1';
+const TOKEN_KEY = 'eef.token';
 
 export class ApiError extends Error {}
 
+function getToken(): string | null {
+  try {
+    return localStorage.getItem(TOKEN_KEY);
+  } catch {
+    return null;
+  }
+}
+
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
+  const headers = new Headers(init?.headers);
+  const token = getToken();
+  if (token) headers.set('Authorization', `Bearer ${token}`);
   let res: Response;
   try {
-    res = await fetch(url, init);
+    res = await fetch(url, { ...init, headers });
   } catch {
     throw new ApiError('Cannot reach the backend. Is the server running?');
   }
@@ -138,8 +166,22 @@ async function request<T>(url: string, init?: RequestInit): Promise<T> {
   return res.json() as Promise<T>;
 }
 
+const json = (body: unknown): RequestInit => ({
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(body),
+});
+
 export const api = {
   health: () => request<HealthStatus>(`${BASE}/health`),
+  register: (body: { email: string; name: string; password: string }) =>
+    request<AuthResponseData>(`${BASE}/auth/register`, json(body)),
+  login: (body: { email: string; password: string }) =>
+    request<AuthResponseData>(`${BASE}/auth/login`, json(body)),
+  forgotPassword: (email: string) =>
+    request<ForgotPasswordResponseData>(`${BASE}/auth/forgot-password`, json({ email })),
+  resetPassword: (token: string, new_password: string) =>
+    request<{ message: string }>(`${BASE}/auth/reset-password`, json({ token, new_password })),
   uploadSubmission: (files: File[], expectedTypes: string[], applicantRef: string) => {
     const form = new FormData();
     files.forEach((f) => form.append('files', f));

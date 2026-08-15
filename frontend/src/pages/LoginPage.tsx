@@ -23,8 +23,8 @@ import {
   Zap,
 } from 'lucide-react';
 import {
-  accountExists,
   clearRememberedEmail,
+  forgotPassword,
   getRememberedEmail,
   initialsOf,
   resetPassword,
@@ -36,7 +36,7 @@ import {
 } from '../auth';
 
 type Mode = 'signin' | 'signup';
-type Stage = 'main' | 'forgot' | 'forgot-reset' | 'forgot-done';
+type Stage = 'main' | 'forgot' | 'forgot-sent' | 'forgot-reset' | 'forgot-done';
 type BusyKind = 'email' | null;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -101,11 +101,21 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
   const [shake, setShake] = useState(false);
   const [newPass, setNewPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
+  const [resetToken, setResetToken] = useState('');
+  const [forgotLink, setForgotLink] = useState('');
 
   const [featureIdx, setFeatureIdx] = useState(0);
   const [tickerIdx, setTickerIdx] = useState(0);
   const [progress, setProgress] = useState(0);
   const timers = useRef<number[]>([]);
+
+  useEffect(() => {
+    const token = new URLSearchParams(window.location.search).get('token');
+    if (token) {
+      setResetToken(token);
+      setStage('forgot-reset');
+    }
+  }, []);
 
   useEffect(() => {
     timers.current.push(window.setInterval(() => setFeatureIdx((i) => (i + 1) % FEATURES.length), 3200));
@@ -139,10 +149,10 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
   const tick = TICKER[tickerIdx];
 
   const commitAuth = useCallback(
-    (user: AuthUser) => {
+    (user: AuthUser, token?: string) => {
       if (remember) setRememberedEmail(user.email);
       else clearRememberedEmail();
-      setSession(user);
+      setSession(user, token);
       timers.current.push(window.setTimeout(() => onAuthed(user), 1500));
     },
     [remember, onAuthed],
@@ -167,7 +177,7 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
     return e;
   };
 
-  const submitEmail = (ev?: React.FormEvent) => {
+  const submitEmail = async (ev?: React.FormEvent) => {
     ev?.preventDefault();
     if (busy || success) return;
     if (stage !== 'main') return;
@@ -179,38 +189,41 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
       return;
     }
     setBusy('email');
-    timers.current.push(
-      window.setTimeout(() => {
-        const res = mode === 'signin' ? signInWithEmail(email, password) : signUpWithEmail(email, name, password);
-        setBusy(null);
-        if (!res.ok || !res.user) {
-          setErrors({ form: res.error ?? 'Something went wrong. Please try again.' });
-          setShake(true);
-          timers.current.push(window.setTimeout(() => setShake(false), 500));
-          return;
-        }
-        setSuccess(res.user);
-        commitAuth(res.user);
-      }, 900),
-    );
+    try {
+      const res = mode === 'signin' ? await signInWithEmail(email, password) : await signUpWithEmail(email, name, password);
+      if (!res.ok || !res.user) {
+        setErrors({ form: res.error ?? 'Something went wrong. Please try again.' });
+        setShake(true);
+        timers.current.push(window.setTimeout(() => setShake(false), 500));
+        return;
+      }
+      setSuccess(res.user);
+      commitAuth(res.user, res.token);
+    } finally {
+      setBusy(null);
+    }
   };
 
-  const submitForgot = (ev?: React.FormEvent) => {
+  const submitForgot = async (ev?: React.FormEvent) => {
     ev?.preventDefault();
     const em = email.trim();
     if (!EMAIL_RE.test(em)) {
       setErrors({ email: 'Enter a valid email address.' });
       return;
     }
-    if (!accountExists(em)) {
-      setErrors({ email: 'No account found for this email. Create an account first.' });
+    setErrors({});
+    setBusy('email');
+    const res = await forgotPassword(em);
+    setBusy(null);
+    if (!res.ok) {
+      setErrors({ form: res.error ?? 'Could not process the request. Try again.' });
       return;
     }
-    setErrors({});
-    setStage('forgot-reset');
+    setForgotLink(res.devResetLink ?? '');
+    setStage('forgot-sent');
   };
 
-  const submitReset = (ev?: React.FormEvent) => {
+  const submitReset = async (ev?: React.FormEvent) => {
     ev?.preventDefault();
     const e: Record<string, string> = {};
     if (!newPass) e.newPass = 'Create a new password.';
@@ -218,7 +231,13 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
     if (confirmPass !== newPass) e.confirmPass = 'Passwords do not match.';
     setErrors(e);
     if (Object.keys(e).length > 0) return;
-    const res = resetPassword(email, newPass);
+    if (!resetToken) {
+      setErrors({ form: 'This reset link is missing its token. Request a new reset link.' });
+      return;
+    }
+    setBusy('email');
+    const res = await resetPassword(resetToken, newPass);
+    setBusy(null);
     if (!res.ok) {
       setErrors({ form: res.error ?? 'Could not reset the password. Try again.' });
       return;
@@ -230,6 +249,7 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
     setNewPass('');
     setConfirmPass('');
     setErrors({});
+    setForgotLink('');
     setStage('forgot');
   };
 
@@ -397,10 +417,30 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
                     </div>
                     {errors.email && <div className="field-error"><AlertCircle size={13} /> {errors.email}</div>}
                   </div>
-                  <button className="btn block" type="submit">
-                    <KeyRound size={16} /> Continue
+                  <button className="btn block" type="submit" disabled={busy === 'email'}>
+                    {busy === 'email' ? <><Loader2 size={16} className="spin" /> Sending…</> : <><KeyRound size={16} /> Continue</>}
                   </button>
                 </form>
+              </div>
+            ) : stage === 'forgot-sent' ? (
+              <div className="forgot-panel">
+                <button className="link-back" onClick={() => { setStage('main'); clearError('email'); }}>
+                  <ArrowLeft size={14} /> Back to sign in
+                </button>
+                <div className="forgot-icon"><KeyRound size={26} /></div>
+                <h2>Check your email</h2>
+                <p className="muted">
+                  If that email is registered, a password reset link has been sent to <b>{email.trim()}</b>.
+                </p>
+                {forgotLink && (
+                  <div style={{ marginTop: 12, padding: '12px 14px', background: 'rgba(34,211,238,0.08)', border: '1px solid rgba(34,211,238,0.3)', borderRadius: 12 }}>
+                    <div className="muted" style={{ fontSize: 12, marginBottom: 4 }}>Email not configured — development reset link:</div>
+                    <a className="link-btn" href={forgotLink} style={{ wordBreak: 'break-all' }}>{forgotLink}</a>
+                  </div>
+                )}
+                <button className="btn block" onClick={() => setStage('main')}>
+                  <ArrowRight size={16} /> Back to sign in
+                </button>
               </div>
             ) : stage === 'forgot-reset' ? (
               <div className="forgot-panel">
@@ -409,7 +449,7 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
                 </button>
                 <div className="forgot-icon"><KeyRound size={26} /></div>
                 <h2>Choose a new password</h2>
-                <p className="muted">Reset password for <b>{email.trim()}</b></p>
+                <p className="muted">Enter a new password for your account.</p>
                 <form onSubmit={submitReset} noValidate>
                   <div className="field">
                     <label htmlFor="npass">New password</label>
@@ -443,8 +483,8 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
                     {errors.confirmPass && <div className="field-error"><AlertCircle size={13} /> {errors.confirmPass}</div>}
                   </div>
                   {errors.form && <div className="form-error"><AlertCircle size={14} /> {errors.form}</div>}
-                  <button className="btn block" type="submit">
-                    <KeyRound size={16} /> Update password
+                  <button className="btn block" type="submit" disabled={busy === 'email'}>
+                    {busy === 'email' ? <><Loader2 size={16} className="spin" /> Updating…</> : <><KeyRound size={16} /> Update password</>}
                   </button>
                 </form>
               </div>
