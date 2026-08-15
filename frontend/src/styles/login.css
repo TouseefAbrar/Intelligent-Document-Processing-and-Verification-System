@@ -526,6 +526,18 @@
   animation: fadeUp 0.25s ease;
 }
 
+.form-success {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  color: var(--emerald);
+  border-radius: 11px;
+  padding: 11px 13px;
+  font-size: 13px;
+  margin-bottom: 14px;
+  animation: fadeUp 0.25s ease;
+}
+
 .btn.block {
   width: 100%;
   justify-content: center;

@@ -98,6 +98,7 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState<BusyKind>(null);
   const [success, setSuccess] = useState<AuthUser | null>(null);
+  const [notice, setNotice] = useState('');
   const [shake, setShake] = useState(false);
   const [newPass, setNewPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
@@ -181,6 +182,7 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
     ev?.preventDefault();
     if (busy || success) return;
     if (stage !== 'main') return;
+    setNotice('');
     const e = validate();
     setErrors(e);
     if (Object.keys(e).length > 0) {
@@ -195,6 +197,13 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
         setErrors({ form: res.error ?? 'Something went wrong. Please try again.' });
         setShake(true);
         timers.current.push(window.setTimeout(() => setShake(false), 500));
+        return;
+      }
+      if (mode === 'signup') {
+        setMode('signin');
+        setPassword('');
+        setConfirm('');
+        setNotice('Account created. Sign in with your credentials.');
         return;
       }
       setSuccess(res.user);
@@ -494,14 +503,14 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
                   <button
                     type="button"
                     className={`tab ${mode === 'signin' ? 'active' : ''}`}
-                    onClick={() => { setMode('signin'); setErrors({}); }}
+                    onClick={() => { setMode('signin'); setNotice(''); setErrors({}); }}
                   >
                     Sign in
                   </button>
                   <button
                     type="button"
                     className={`tab ${mode === 'signup' ? 'active' : ''}`}
-                    onClick={() => { setMode('signup'); setErrors({}); }}
+                    onClick={() => { setMode('signup'); setNotice(''); setErrors({}); }}
                   >
                     Create account
                   </button>
@@ -642,6 +651,7 @@ export default function LoginPage({ onAuthed }: LoginPageProps) {
                     </div>
                   )}
 
+                  {notice && <div className="form-success"><CheckCircle2 size={14} /> {notice}</div>}
                   {errors.form && <div className="form-error"><AlertCircle size={14} /> {errors.form}</div>}
                   {errors.agree && <div className="field-error"><AlertCircle size={13} /> {errors.agree}</div>}
 
