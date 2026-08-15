@@ -9,4 +9,5 @@ mv /tmp/default.conf /etc/nginx/conf.d/default.conf
 
 nginx
 
-exec uvicorn backend.app.main:app --host 0.0.0.0 --port 8000
+cd /app/backend
+exec uvicorn app.main:app --host 0.0.0.0 --port 8000
