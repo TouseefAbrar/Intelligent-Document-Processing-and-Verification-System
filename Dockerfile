@@ -31,6 +31,6 @@ COPY --from=fe-build /fe/dist /usr/share/nginx/html
 
 RUN chmod +x /entrypoint.sh
 
-EXPOSE 80
+EXPOSE 80 8000
 
 CMD ["/entrypoint.sh"]
