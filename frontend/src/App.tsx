@@ -271,6 +271,8 @@ export default function App() {
         </div>
       </aside>
 
+      {navOpen && <div className="sidebar-backdrop" onClick={() => setNavOpen(false)} />}
+
       <main className="main">
         <div className="topbar">
           <div className="topbar-title">

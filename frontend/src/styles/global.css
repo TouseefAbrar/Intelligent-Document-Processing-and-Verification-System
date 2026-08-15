@@ -60,9 +60,7 @@ a:hover { text-decoration: underline; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.22); }
 
 /* ---------- Shell ---------- */
-/* Desktop layout is preserved on every viewport: the shell keeps a desktop
-   minimum width and the page scrolls horizontally on small screens. */
-.app-shell { display: flex; min-height: 100vh; min-width: 1280px; }
+.app-shell { display: flex; min-height: 100vh; width: 100%; }
 
 .sidebar {
   position: sticky;
@@ -237,7 +235,7 @@ a:hover { text-decoration: underline; }
 .panel-sub { color: var(--muted); font-size: 12.5px; margin-top: 3px; }
 
 /* ---------- KPI cards ---------- */
-/* Always exactly 4 columns so the key metrics never stack or shrink on mobile. */
+/* Desktop shows 4 columns; they step down to 2 (tablet) and 1 (mobile) below. */
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -405,7 +403,7 @@ a:hover { text-decoration: underline; }
 .bar.bad > div { background: linear-gradient(90deg, var(--rose), var(--amber)); }
 
 /* ---------- Document card ---------- */
-.doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 16px; }
+.doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(330px, 100%), 1fr)); gap: 16px; }
 .doc-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), var(--panel));
   border: 1px solid var(--border-strong);
@@ -501,6 +499,7 @@ table.data .actions { display: flex; gap: 6px; justify-content: flex-end; }
 .chart-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 22px; }
 .chart-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
 .chart-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.chart-grid > * { min-width: 0; }
 .chart-card {
   min-width: 0;
   display: flex;
@@ -539,7 +538,7 @@ table.data .actions { display: flex; gap: 6px; justify-content: flex-end; }
 .recharts-default-tooltip { border-radius: 10px !important; border: 1px solid var(--border-strong) !important; }
 
 /* ---------- Insights ---------- */
-.insights { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.insights { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 12px; }
 .insight {
   display: flex; gap: 12px; align-items: flex-start;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), var(--panel));
@@ -632,8 +631,8 @@ table.data .actions { display: flex; gap: 6px; justify-content: flex-end; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin-slow { animation: spin 1.4s linear infinite; }
-.progress-note { display: flex; align-items: center; gap: 12px; margin-top: 16px; color: var(--muted); font-size: 13px; }
-.progress-note .stages { display: flex; gap: 6px; margin-left: 4px; }
+.progress-note { display: flex; align-items: center; gap: 12px; margin-top: 16px; color: var(--muted); font-size: 13px; flex-wrap: wrap; }
+.progress-note .stages { display: flex; gap: 6px; margin-left: 4px; flex-wrap: wrap; }
 .stage { font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: 7px; background: rgba(255,255,255,0.05); color: var(--muted); }
 .stage.on { color: var(--cyan); background: rgba(34,211,238,0.12); }
 .stage.done { color: var(--emerald); background: rgba(52,211,153,0.12); }
@@ -743,6 +742,49 @@ footer { margin-top: 34px; color: var(--muted); font-size: 12px; text-align: cen
 }
 
 /* ---------- Misc ---------- */
-/* The sidebar never collapses into a hamburger menu — the desktop layout is
-   kept on every screen size (horizontal scrolling is provided by .app-shell). */
+/* The hamburger only appears below desktop width; the sidebar then slides in
+   as an off-canvas panel with a tap-outside backdrop. */
 .menu-btn { display: none; }
+
+/* ---------- Responsive ---------- */
+/* Breakpoints: desktop >=1024px · tablet 641-1023px · mobile <=640px */
+
+@media (max-width: 1240px) {
+  .chart-grid, .chart-grid.cols-2, .chart-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1023px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 50;
+    box-shadow: 30px 0 80px rgba(0, 0, 0, 0.5);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .menu-btn { display: grid; }
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(3, 5, 12, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .main { padding: 22px 20px 48px; }
+}
+
+@media (max-width: 640px) {
+  .main { padding: 18px 14px 40px; }
+  .kpi-grid { grid-template-columns: minmax(0, 1fr); }
+  .chart-grid, .chart-grid.cols-2, .chart-grid.cols-3 { grid-template-columns: minmax(0, 1fr); }
+  .drawer { padding: 18px; }
+  .section-head .section-title { white-space: normal; }
+  input[type='text'] { min-width: 0; width: 100%; flex-basis: 100%; }
+  .topbar { margin-bottom: 18px; }
+  .topbar-title h2 { font-size: 22px; }
+}
