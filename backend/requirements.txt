@@ -1,0 +1,29 @@
+# --- Web framework ----------------------------------------------------------
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+pydantic==2.10.4
+pydantic-settings==2.7.1
+
+# --- Database ----------------------------------------------------------------
+SQLAlchemy==2.0.36
+
+# --- AI / LLM ----------------------------------------------------------------
+groq==0.18.0
+
+# --- OCR ----------------------------------------------------------------------
+pymupdf==1.25.1
+pytesseract==0.3.13     # local scan OCR — requires the system Tesseract binary
+# easyocr==1.7.2        # optional alternative; pulls PyTorch (can be unstable on Windows)
+
+# --- Quality / hashing ---------------------------------------------------------
+Pillow==11.1.0
+opencv-python-headless==4.10.0.84
+numpy==1.26.4
+imagehash==4.3.1
+reportlab==4.2.5
+pypdf==6.16.1            # PDF text extraction (used by tests)
+
+# --- Dev / testing ------------------------------------------------------------
+httpx==0.28.1
+pytest==8.3.4

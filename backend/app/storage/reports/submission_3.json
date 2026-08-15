@@ -1,0 +1,93 @@
+{
+  "report_id": "EEF-00003",
+  "generated_at": "2026-08-14T10:59:49.253380+00:00",
+  "submission_id": 3,
+  "applicant_ref": "",
+  "status": "FAILED",
+  "completeness_score": 0.2,
+  "overall_confidence": 0.75,
+  "missing_documents": [
+    "resume",
+    "cnic",
+    "degree",
+    "transcript"
+  ],
+  "duplicate_documents": [],
+  "summary": {
+    "status": "FAILED",
+    "completeness_score": 0.2,
+    "overall_confidence": 0.75,
+    "missing_documents": [
+      "resume",
+      "cnic",
+      "degree",
+      "transcript"
+    ],
+    "duplicate_documents": [],
+    "documents_checked": 1,
+    "critical_documents": 0,
+    "flagged_documents": 1,
+    "inconsistency_documents": 0,
+    "invalid_documents": 0,
+    "wrong_type_documents": 0,
+    "inconsistencies": []
+  },
+  "documents": [
+    {
+      "id": 47,
+      "file_name": "OfferLetter_Touseef_Abrar.pdf",
+      "doc_type": "offer_letter",
+      "expected_doc_type": "",
+      "doc_type_label": "Offer Letter",
+      "classification_confidence": 0.603,
+      "ocr_confidence": 0.95,
+      "ocr_provider": "pymupdf",
+      "language": "auto",
+      "status": "FLAGGED",
+      "extracted": {
+        "phone": "03377777860",
+        "graduation_year": 2026,
+        "position": "Artificial intelligence at Ezitech Instit",
+        "start_date": "06-Jul-2026",
+        "is_verified": null
+      },
+      "issues": [
+        {
+          "field": "full_name",
+          "message": "Missing/invalid: full_name",
+          "severity": "warning"
+        },
+        {
+          "field": "issuer",
+          "message": "Missing/invalid: issuer",
+          "severity": "warning"
+        }
+      ],
+      "recommended_actions": [
+        "Manual review recommended before approval"
+      ],
+      "quality": {
+        "blur": 2366.32,
+        "brightness": 228.79,
+        "contrast": 61.7,
+        "width": 1241,
+        "height": 1754,
+        "min_side": 1241,
+        "quality_score": 1.0,
+        "issues": [],
+        "is_blurry": false,
+        "is_low_quality": false,
+        "dpi": 96.0,
+        "note": "PDF pixel quality checked via first-page render"
+      },
+      "duplicate": {
+        "is_duplicate": false,
+        "similarity": 0.0,
+        "method": "sha256",
+        "matched_hash": "",
+        "matched_file": "",
+        "reason": ""
+      }
+    }
+  ]
+}

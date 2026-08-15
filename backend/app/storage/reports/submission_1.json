@@ -1,0 +1,409 @@
+{
+  "report_id": "EEF-00001",
+  "generated_at": "2026-08-15T08:51:10.889476+00:00",
+  "submission_id": 1,
+  "applicant_ref": "",
+  "status": "FAILED",
+  "completeness_score": 0.6,
+  "overall_confidence": 0.9,
+  "missing_documents": [
+    "degree",
+    "transcript"
+  ],
+  "duplicate_documents": [],
+  "summary": {
+    "status": "FAILED",
+    "completeness_score": 0.6,
+    "overall_confidence": 0.9,
+    "missing_documents": [
+      "degree",
+      "transcript"
+    ],
+    "duplicate_documents": [],
+    "documents_checked": 3,
+    "critical_documents": 0,
+    "flagged_documents": 0,
+    "inconsistency_documents": 0,
+    "invalid_documents": 0,
+    "wrong_type_documents": 0,
+    "forgery_documents": 0,
+    "inconsistencies": [],
+    "applicant_name": null,
+    "documents_summary": "The submission has a completeness score of 0.6, indicating that some required documents are missing. Overall confidence in the submission is high at 0.9.",
+    "highlights": [],
+    "concerns": [
+      "Missing degree and transcript documents"
+    ],
+    "overall_comment": "The submission has a high overall confidence score, but is incomplete due to missing critical documents. It is recommended to review the submission and request the missing documents.",
+    "recommended_action": "REVIEW"
+  },
+  "documents": [
+    {
+      "id": 35,
+      "file_name": "OfferLetter_Touseef_Abrar.pdf",
+      "doc_type": "offer_letter",
+      "expected_doc_type": "",
+      "doc_type_label": "Offer Letter",
+      "classification_confidence": 0.99,
+      "ocr_confidence": 0.95,
+      "ocr_provider": "pymupdf",
+      "language": "auto",
+      "status": "PASSED",
+      "extracted": {
+        "full_name": "Touseef Abrar",
+        "institute_phone": "0337 7777860",
+        "joining_date": "06-Jul-2026",
+        "ending_date": "04-Sep-2026",
+        "skills": [
+          "Artificial intelligence"
+        ],
+        "experience": [],
+        "certifications": [
+          "Pasha Certificate no : 2023/A0712",
+          "SECP : 0112788",
+          "CMMI Level : 3",
+          "NTN : 8502194-3"
+        ],
+        "issuer": "Ezitech Institute",
+        "issue_date": "07-Jul-2026",
+        "document_number": "Intern-ID-ETI-31277-26/31277",
+        "is_verified": true,
+        "position": "Artificial intelligence"
+      },
+      "issues": [],
+      "recommended_actions": [
+        "No action required — document verified automatically"
+      ],
+      "quality": {
+        "blur": 2366.32,
+        "brightness": 228.79,
+        "contrast": 61.7,
+        "width": 1241,
+        "height": 1754,
+        "quality_score": 1.0,
+        "issues": [],
+        "is_blurry": false,
+        "dpi": 96.0,
+        "note": "PDF pixel quality checked via first-page render"
+      },
+      "duplicate": {
+        "is_duplicate": false,
+        "similarity": 0.0,
+        "method": "sha256",
+        "matched_hash": "",
+        "matched_file": "",
+        "reason": ""
+      },
+      "forgery": {
+        "detected": false,
+        "level": "GREEN",
+        "score": 0.66,
+        "confidence": 1.0,
+        "engine": "heuristics+llm",
+        "signals": [
+          {
+            "name": "metadata",
+            "label": "PDF metadata trail",
+            "result": "clear",
+            "score": 0.0,
+            "detail": "No editing-software trail found in PDF metadata"
+          },
+          {
+            "name": "ela",
+            "label": "Error-Level Analysis (ELA)",
+            "result": "warning",
+            "score": 0.4,
+            "detail": "22/1027 smooth regions show inconsistent re-save error — possible pasted or re-encoded region"
+          },
+          {
+            "name": "noise",
+            "label": "Noise consistency",
+            "result": "clear",
+            "score": 0.023,
+            "detail": "Noise is consistent across the image — no obvious spliced regions"
+          },
+          {
+            "name": "content",
+            "label": "Content validation",
+            "result": "clear",
+            "score": 0.0,
+            "detail": "No content-level inconsistencies found",
+            "decisive": false
+          }
+        ],
+        "summary": [
+          "PDF metadata trail: No editing-software trail found in PDF metadata",
+          "Error-Level Analysis (ELA): 22/1027 smooth regions show inconsistent re-save error — possible pasted or re-encoded region",
+          "Noise consistency: Noise is consistent across the image — no obvious spliced regions",
+          "Content validation: No content-level inconsistencies found",
+          "ELA warning due to possible pasted or re-encoded region",
+          "No editing-software trail found in PDF metadata",
+          "Noise is consistent across the image",
+          "No content-level inconsistencies found"
+        ],
+        "note": "No forgery indicators detected.",
+        "llm": {
+          "verdict": "GENUINE",
+          "confidence": 0.8,
+          "notes": [
+            "ELA warning due to possible pasted or re-encoded region",
+            "No editing-software trail found in PDF metadata",
+            "Noise is consistent across the image",
+            "No content-level inconsistencies found"
+          ],
+          "recommended_action": "Verify with Ezitech Institute"
+        }
+      }
+    },
+    {
+      "id": 36,
+      "file_name": "Touseef_Abrar cv.pdf",
+      "doc_type": "resume",
+      "expected_doc_type": "",
+      "doc_type_label": "Resume",
+      "classification_confidence": 0.9,
+      "ocr_confidence": 0.95,
+      "ocr_provider": "pymupdf",
+      "language": "auto",
+      "status": "PASSED",
+      "extracted": {
+        "full_name": "Touseef Abrar",
+        "email": "malak.touseef012@gmail.com",
+        "phone": "+923438516207",
+        "university": "University of Kotli",
+        "degree": "Bachelor of Science, Artificial Intelligence",
+        "major": "Artificial Intelligence",
+        "graduation_year": 2027,
+        "cgpa": 3.0,
+        "skills": [
+          "Machine Learning",
+          "Deep Learning",
+          "NLP",
+          "Cyber Security",
+          "data-driven problem solving",
+          "Python",
+          "TensorFlow",
+          "Flask",
+          "Streamlit"
+        ],
+        "experience": [
+          {
+            "role": "Developed machine learning models using Python, performed data preprocessing and model evaluation, and worked on end-to-end ML workflows.",
+            "company": "Artificial intelligence, Code Alpha",
+            "duration": "01May 2026 — 30May 2026"
+          },
+          {
+            "role": "Student Performance Prediction System, Laptop Price Prediction System, Language Translation Tool System, Object Detection and Tracking System",
+            "company": "Academic Projects, UOK",
+            "duration": "Apr 2024 — Dec 2025"
+          }
+        ],
+        "certifications": [],
+        "address": "Kotli, Azad Jammu & Kashmir",
+        "languages": [],
+        "issuer": "University of Kotli",
+        "is_verified": true
+      },
+      "issues": [],
+      "recommended_actions": [
+        "No action required — document verified automatically"
+      ],
+      "quality": {
+        "blur": 4479.7,
+        "brightness": 244.06,
+        "contrast": 42.72,
+        "width": 1242,
+        "height": 1757,
+        "quality_score": 1.0,
+        "issues": [],
+        "is_blurry": false,
+        "dpi": 96.0,
+        "note": "PDF pixel quality checked via first-page render"
+      },
+      "duplicate": {
+        "is_duplicate": false,
+        "similarity": 0.0,
+        "method": "sha256",
+        "matched_hash": "",
+        "matched_file": "",
+        "reason": ""
+      },
+      "forgery": {
+        "detected": false,
+        "level": "GREEN",
+        "score": 0.53,
+        "confidence": 1.0,
+        "engine": "heuristics+llm",
+        "signals": [
+          {
+            "name": "metadata",
+            "label": "PDF metadata trail",
+            "result": "clear",
+            "score": 0.0,
+            "detail": "No editing-software trail found in PDF metadata"
+          },
+          {
+            "name": "ela",
+            "label": "Error-Level Analysis (ELA)",
+            "result": "warning",
+            "score": 0.4,
+            "detail": "38/1026 smooth regions show inconsistent re-save error — possible pasted or re-encoded region"
+          },
+          {
+            "name": "noise",
+            "label": "Noise consistency",
+            "result": "clear",
+            "score": 0.0,
+            "detail": "Noise is consistent across the image — no obvious spliced regions"
+          },
+          {
+            "name": "content",
+            "label": "Content validation",
+            "result": "clear",
+            "score": 0.0,
+            "detail": "No content-level inconsistencies found",
+            "decisive": false
+          }
+        ],
+        "summary": [
+          "PDF metadata trail: No editing-software trail found in PDF metadata",
+          "Error-Level Analysis (ELA): 38/1026 smooth regions show inconsistent re-save error — possible pasted or re-encoded region",
+          "Noise consistency: Noise is consistent across the image — no obvious spliced regions",
+          "Content validation: No content-level inconsistencies found",
+          "ELA warning (0.4) due to possible pasted or re-encoded region",
+          "Metadata clear, no editing-software trail found",
+          "Noise consistency clear, no obvious spliced regions",
+          "Content validation clear, no content-level inconsistencies found"
+        ],
+        "note": "No forgery indicators detected.",
+        "llm": {
+          "verdict": "GENUINE",
+          "confidence": 0.6,
+          "notes": [
+            "ELA warning (0.4) due to possible pasted or re-encoded region",
+            "Metadata clear, no editing-software trail found",
+            "Noise consistency clear, no obvious spliced regions",
+            "Content validation clear, no content-level inconsistencies found"
+          ],
+          "recommended_action": "Verify applicant's claims through additional means"
+        }
+      }
+    },
+    {
+      "id": 37,
+      "file_name": "Touseef_Abrar ID Card.jpeg",
+      "doc_type": "cnic",
+      "expected_doc_type": "",
+      "doc_type_label": "CNIC",
+      "classification_confidence": 1.0,
+      "ocr_confidence": 0.8,
+      "ocr_provider": "tesseract",
+      "language": "en",
+      "status": "PASSED",
+      "extracted": {
+        "full_name": "Touseef Abrar",
+        "cnic": "81203-8463357-1",
+        "date_of_birth": "01.03.2004",
+        "date_of_issue": "23.01.2023",
+        "date_of_expiry": "23.01.2033",
+        "issuer": "ISLAMIC REPUBLIC OF PAKISTAN",
+        "is_verified": true,
+        "father_name": "Abrar Ahmed",
+        "issue_date": "2023-01-23",
+        "expiry_date": "2033-01-23"
+      },
+      "issues": [],
+      "recommended_actions": [
+        "No action required — document verified automatically"
+      ],
+      "quality": {
+        "blur": 269.19,
+        "brightness": 214.85,
+        "contrast": 56.09,
+        "width": 1080,
+        "height": 679,
+        "quality_score": 1.0,
+        "issues": [],
+        "is_blurry": false
+      },
+      "duplicate": {
+        "is_duplicate": false,
+        "similarity": 0.0,
+        "method": "dhash",
+        "matched_hash": "",
+        "matched_file": "",
+        "reason": ""
+      },
+      "forgery": {
+        "detected": false,
+        "level": "GREEN",
+        "score": 0.585,
+        "confidence": 1.0,
+        "engine": "heuristics+llm",
+        "signals": [
+          {
+            "name": "ela",
+            "label": "Error-Level Analysis (ELA)",
+            "result": "clear",
+            "score": 0.0,
+            "detail": "No tampering signature detected by ELA"
+          },
+          {
+            "name": "metadata",
+            "label": "Metadata & editing trail",
+            "result": "clear",
+            "score": 0.0,
+            "detail": "No editing-software trail found in metadata"
+          },
+          {
+            "name": "compression",
+            "label": "JPEG compression artifacts",
+            "result": "clear",
+            "score": 0.0,
+            "detail": "Compression artifacts within normal range (blocking=0.30)"
+          },
+          {
+            "name": "noise",
+            "label": "Noise consistency",
+            "result": "clear",
+            "score": 0.0,
+            "detail": "Noise is consistent across the image — no obvious spliced regions"
+          },
+          {
+            "name": "content",
+            "label": "Content validation",
+            "result": "clear",
+            "score": 0.0,
+            "detail": "No content-level inconsistencies found",
+            "decisive": false
+          }
+        ],
+        "summary": [
+          "Error-Level Analysis (ELA): No tampering signature detected by ELA",
+          "Metadata & editing trail: No editing-software trail found in metadata",
+          "JPEG compression artifacts: Compression artifacts within normal range (blocking=0.30)",
+          "Noise consistency: Noise is consistent across the image — no obvious spliced regions",
+          "Content validation: No content-level inconsistencies found",
+          "No tampering signature detected by ELA",
+          "No editing-software trail found in metadata",
+          "Compression artifacts within normal range",
+          "Noise is consistent across the image",
+          "No content-level inconsistencies found"
+        ],
+        "note": "No forgery indicators detected.",
+        "llm": {
+          "verdict": "GENUINE",
+          "confidence": 0.9,
+          "notes": [
+            "No tampering signature detected by ELA",
+            "No editing-software trail found in metadata",
+            "Compression artifacts within normal range",
+            "Noise is consistent across the image",
+            "No content-level inconsistencies found"
+          ],
+          "recommended_action": "Verify document authenticity through NADRA"
+        }
+      }
+    }
+  ]
+}

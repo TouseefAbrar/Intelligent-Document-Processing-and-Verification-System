@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0e14"/><stop offset="1" stop-color="#131721"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6d5cff"/><stop offset="1" stop-color="#4fc3f7"/>
+    </linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.35"/></filter>
+  </defs>
+  <rect width="1280" height="900" fill="url(#bg)"/>
+
+  <text x="40" y="48" fill="#e7ebf3" font-size="26" font-weight="700">EEF — Intelligent Document Processing &amp; Verification Engine</text>
+  <text x="40" y="72" fill="#8b93a7" font-size="14">AI Architecture Diagram · AI-004 · Ezitech Engineering Framework</text>
+
+  <!-- CLIENT LAYER -->
+  <rect x="40" y="100" width="400" height="120" rx="12" fill="#181d29" stroke="#232a3a" filter="url(#shadow)"/>
+  <rect x="40" y="100" width="400" height="34" rx="12" fill="#232a3a"/>
+  <text x="240" y="122" fill="#e7ebf3" font-size="14" font-weight="700" text-anchor="middle">CLIENT LAYER</text>
+  <text x="60" y="162" fill="#e7ebf3" font-size="13">React SPA (frontend/)</text>
+  <text x="60" y="182" fill="#8b93a7" font-size="12">drag &amp; drop upload · results dashboard · reports</text>
+  <text x="60" y="204" fill="#e7ebf3" font-size="13">REST / Postman clients</text>
+
+  <!-- API -->
+  <rect x="560" y="100" width="400" height="120" rx="12" fill="#181d29" stroke="#232a3a" filter="url(#shadow)"/>
+  <rect x="560" y="100" width="400" height="34" rx="12" fill="#6d5cff"/>
+  <text x="760" y="122" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">REST API — FastAPI (backend/)</text>
+  <text x="580" y="160" fill="#e7ebf3" font-size="12.5">POST /documents/upload · POST /submissions/upload</text>
+  <text x="580" y="180" fill="#e7ebf3" font-size="12.5">GET /submissions/{id} · GET /submissions/{id}/report</text>
+  <text x="580" y="200" fill="#8b93a7" font-size="12">CORS · multipart uploads · OpenAPI /docs</text>
+
+  <line x1="440" y1="160" x2="558" y2="160" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- OCR -->
+  <rect x="40" y="290" width="300" height="170" rx="12" fill="#181d29" stroke="#232a3a" filter="url(#shadow)"/>
+  <rect x="40" y="290" width="300" height="34" rx="12" fill="#232a3a"/>
+  <text x="190" y="312" fill="#e7ebf3" font-size="13" font-weight="700" text-anchor="middle">1 · OCR PIPELINE</text>
+  <text x="60" y="348" fill="#e7ebf3" font-size="12">PyMuPDF — digital PDF text layer</text>
+  <text x="60" y="370" fill="#e7ebf3" font-size="12">Groq Vision — scanned images</text>
+  <text x="60" y="392" fill="#8b93a7" font-size="12">  (Urdu / Arabic / English — bonus)</text>
+  <text x="60" y="414" fill="#e7ebf3" font-size="12">Tesseract · EasyOCR — fallbacks</text>
+  <text x="60" y="440" fill="#8b93a7" font-size="11">output: raw text + confidence</text>
+
+  <!-- CLASSIFY -->
+  <rect x="390" y="290" width="260" height="170" rx="12" fill="#181d29" stroke="#232a3a" filter="url(#shadow)"/>
+  <rect x="390" y="290" width="260" height="34" rx="12" fill="#232a3a"/>
+  <text x="520" y="312" fill="#e7ebf3" font-size="13" font-weight="700" text-anchor="middle">2 · CLASSIFICATION</text>
+  <text x="410" y="348" fill="#e7ebf3" font-size="12">Groq LLM (JSON mode)</text>
+  <text x="410" y="370" fill="#8b93a7" font-size="12">resume · cnic · degree · transcript</text>
+  <text x="410" y="390" fill="#8b93a7" font-size="12">internship · recommendation</text>
+  <text x="410" y="410" fill="#8b93a7" font-size="12">certificate · other</text>
+  <text x="410" y="440" fill="#8b93a7" font-size="11">keyword-rule fallback</text>
+
+  <!-- QUALITY -->
+  <rect x="700" y="290" width="260" height="170" rx="12" fill="#181d29" stroke="#232a3a" filter="url(#shadow)"/>
+  <rect x="700" y="290" width="260" height="34" rx="12" fill="#232a3a"/>
+  <text x="830" y="312" fill="#e7ebf3" font-size="13" font-weight="700" text-anchor="middle">4 · QUALITY SIGNALS</text>
+  <text x="720" y="348" fill="#e7ebf3" font-size="12">OpenCV Laplacian blur variance</text>
+  <text x="720" y="370" fill="#e7ebf3" font-size="12">brightness / contrast</text>
+  <text x="720" y="392" fill="#e7ebf3" font-size="12">QR decode (bonus)</text>
+  <text x="720" y="414" fill="#e7ebf3" font-size="12">ELA tamper detection (bonus)</text>
+  <text x="720" y="440" fill="#8b93a7" font-size="11">output: quality metrics + issues</text>
+
+  <line x1="340" y1="350" x2="388" y2="350" stroke="#4fc3f7" stroke-width="2"/>
+  <line x1="650" y1="350" x2="698" y2="350" stroke="#4fc3f7" stroke-width="2"/>
+
+  <!-- EXTRACTION -->
+  <rect x="300" y="520" width="420" height="140" rx="12" fill="#181d29" stroke="#232a3a" filter="url(#shadow)"/>
+  <rect x="300" y="520" width="420" height="34" rx="12" fill="#4fc3f7"/>
+  <text x="510" y="542" fill="#0b0e14" font-size="13" font-weight="700" text-anchor="middle">3 · INFORMATION EXTRACTION (NLP)</text>
+  <text x="320" y="580" fill="#e7ebf3" font-size="12">Groq LLM JSON-mode + deterministic regex fallback</text>
+  <text x="320" y="602" fill="#8b93a7" font-size="11.5">name · email · phone · cnic · university · degree · grad year · cgpa</text>
+  <text x="320" y="620" fill="#8b93a7" font-size="11.5">skills · experience · expiry dates · document numbers · issuer</text>
+  <text x="320" y="644" fill="#8b93a7" font-size="11">output: structured field dict</text>
+
+  <line x1="340" y1="460" x2="450" y2="518" stroke="#4fc3f7" stroke-width="2"/>
+  <line x1="520" y1="460" x2="520" y2="518" stroke="#4fc3f7" stroke-width="2"/>
+
+  <!-- VERIFICATION -->
+  <rect x="40" y="720" width="540" height="140" rx="12" fill="#181d29" stroke="#232a3a" filter="url(#shadow)"/>
+  <rect x="40" y="720" width="540" height="34" rx="12" fill="#6d5cff"/>
+  <text x="310" y="742" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">5 · CONFIDENCE SCORING + VERIFICATION</text>
+  <text x="60" y="780" fill="#e7ebf3" font-size="12">Rule-Based Validation Layer: missing fields · required docs ·</text>
+  <text x="60" y="800" fill="#e7ebf3" font-size="12">dHash duplicates · file-type checks · low-quality scans · expiry</text>
+  <text x="60" y="826" fill="#e7ebf3" font-size="12">AI Decision Support Layer: LLM cross-check (augments rules)</text>
+  <text x="60" y="850" fill="#8b93a7" font-size="11">output: status (PASSED/FLAGGED/FAILED) · issues · confidence · actions</text>
+
+  <!-- REPORTING -->
+  <rect x="640" y="720" width="300" height="140" rx="12" fill="#181d29" stroke="#232a3a" filter="url(#shadow)"/>
+  <rect x="640" y="720" width="300" height="34" rx="12" fill="#232a3a"/>
+  <text x="790" y="742" fill="#e7ebf3" font-size="13" font-weight="700" text-anchor="middle">6 · REPORTING</text>
+  <text x="660" y="780" fill="#e7ebf3" font-size="12">HTML report · PDF (reportlab)</text>
+  <text x="660" y="800" fill="#e7ebf3" font-size="12">JSON payload · summary</text>
+  <text x="660" y="826" fill="#8b93a7" font-size="12">SQLAlchemy persistence</text>
+  <text x="660" y="850" fill="#8b93a7" font-size="12">structured UTC logging</text>
+
+  <line x1="580" y1="790" x2="638" y2="790" stroke="#4fc3f7" stroke-width="2"/>
+
+  <!-- data store -->
+  <rect x="1000" y="290" width="240" height="170" rx="12" fill="#181d29" stroke="#6d5cff" filter="url(#shadow)"/>
+  <text x="1120" y="330" fill="#e7ebf3" font-size="13" font-weight="700" text-anchor="middle">STORAGE</text>
+  <text x="1020" y="360" fill="#e7ebf3" font-size="12">Files: app/storage/uploads</text>
+  <text x="1020" y="382" fill="#8b93a7" font-size="12">Reports: app/storage/reports</text>
+  <text x="1020" y="410" fill="#e7ebf3" font-size="12">DB: SQLite → PostgreSQL</text>
+  <text x="1020" y="432" fill="#8b93a7" font-size="11">(SQLAlchemy 2.0 · JSON columns)</text>
+  <text x="1020" y="452" fill="#8b93a7" font-size="11">MongoDB-ready shape (bonus)</text>
+
+  <line x1="960" y1="350" x2="998" y2="350" stroke="#6d5cff" stroke-width="2" stroke-dasharray="5 4"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4fc3f7"/>
+    </marker>
+  </defs>
+</svg>

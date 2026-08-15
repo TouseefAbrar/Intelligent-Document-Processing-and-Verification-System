@@ -1,0 +1,194 @@
+{
+  "report_id": "EEF-00005",
+  "generated_at": "2026-08-13T12:11:03.870508+00:00",
+  "submission_id": 5,
+  "applicant_ref": "CLEAN-BATCH",
+  "status": "PASSED",
+  "completeness_score": 1.0,
+  "overall_confidence": 0.912,
+  "missing_documents": [],
+  "duplicate_documents": [],
+  "summary": {
+    "status": "PASSED",
+    "completeness_score": 1.0,
+    "overall_confidence": 0.912,
+    "missing_documents": [],
+    "duplicate_documents": [],
+    "documents_checked": 4,
+    "critical_documents": 0,
+    "flagged_documents": 0,
+    "applicant_name": null,
+    "documents_summary": "The applicant has submitted a complete set of documents, with all required documents accounted for and no duplicates or missing items found.",
+    "highlights": [
+      "All required documents have been submitted",
+      "No missing or duplicate documents were found",
+      "High completeness score of 1.0"
+    ],
+    "concerns": [],
+    "overall_comment": "The applicant's document submission is comprehensive and well-organized, with a high overall confidence score of 0.912. The submission meets all requirements, with no issues or discrepancies noted. This suggests a strong and reliable application.",
+    "recommended_action": "APPROVE"
+  },
+  "documents": [
+    {
+      "id": 21,
+      "file_name": "sample_resume.pdf",
+      "doc_type": "resume",
+      "doc_type_label": "Resume",
+      "classification_confidence": 0.95,
+      "ocr_confidence": 0.95,
+      "ocr_provider": "pymupdf",
+      "language": "auto",
+      "status": "PASSED",
+      "extracted": {
+        "full_name": "Ali Raza",
+        "email": "ali.raza@example.com",
+        "phone": "0300-1234567",
+        "university": "COMSATS University Islamabad",
+        "degree": "BS",
+        "major": "Computer Science",
+        "graduation_year": 2022,
+        "skills": [
+          "Python",
+          "FastAPI",
+          "Docker",
+          "Machine Learning",
+          "NLP",
+          "OpenCV"
+        ],
+        "experience_years": 3,
+        "experience": [
+          {
+            "role": "ML Engineer",
+            "company": "TechSoft",
+            "duration": "2023-2024"
+          }
+        ],
+        "is_verified": true
+      },
+      "issues": [],
+      "recommended_actions": [
+        "No action required — document verified automatically"
+      ],
+      "quality": {
+        "note": "PDF (digital text) — pixel quality checks skipped",
+        "issues": [],
+        "quality_score": 0.9,
+        "is_low_quality": false
+      },
+      "duplicate": {
+        "is_duplicate": false,
+        "similarity": 0.0,
+        "method": "dhash"
+      }
+    },
+    {
+      "id": 22,
+      "file_name": "scan_cnic.png",
+      "doc_type": "cnic",
+      "doc_type_label": "CNIC",
+      "classification_confidence": 0.99,
+      "ocr_confidence": 0.8,
+      "ocr_provider": "tesseract",
+      "language": "en",
+      "status": "PASSED",
+      "extracted": {
+        "full_name": "Ayesha Khan",
+        "cnic": "35202-1234567-1",
+        "date_of_birth": "1998-08-15",
+        "address": "House 12, Street 5, F-10 Islamabad",
+        "issuer": "Government of Pakistan",
+        "document_number": "35202-1234567-1",
+        "is_verified": true,
+        "phone": "202-1234567",
+        "graduation_year": 1998
+      },
+      "issues": [],
+      "recommended_actions": [
+        "No action required — document verified automatically"
+      ],
+      "quality": {
+        "blur": 393.88,
+        "brightness": 234.43,
+        "contrast": 21.79,
+        "quality_score": 1.0,
+        "issues": [],
+        "is_low_quality": false
+      },
+      "duplicate": {
+        "is_duplicate": false,
+        "similarity": 0.0,
+        "method": "dhash"
+      }
+    },
+    {
+      "id": 23,
+      "file_name": "transcript.pdf",
+      "doc_type": "transcript",
+      "doc_type_label": "Transcript",
+      "classification_confidence": 0.99,
+      "ocr_confidence": 0.95,
+      "ocr_provider": "pymupdf",
+      "language": "auto",
+      "status": "PASSED",
+      "extracted": {
+        "full_name": "Ali Raza",
+        "university": "COMSATS University Islamabad",
+        "cgpa": 3.42,
+        "issuer": "COMSATS University Islamabad",
+        "document_number": "CIIT/FA18-BCS-001",
+        "is_verified": true
+      },
+      "issues": [],
+      "recommended_actions": [
+        "No action required — document verified automatically"
+      ],
+      "quality": {
+        "note": "PDF (digital text) — pixel quality checks skipped",
+        "issues": [],
+        "quality_score": 0.9,
+        "is_low_quality": false
+      },
+      "duplicate": {
+        "is_duplicate": false,
+        "similarity": 0.0,
+        "method": "dhash"
+      }
+    },
+    {
+      "id": 24,
+      "file_name": "degree.pdf",
+      "doc_type": "degree",
+      "doc_type_label": "Degree",
+      "classification_confidence": 0.99,
+      "ocr_confidence": 0.95,
+      "ocr_provider": "pymupdf",
+      "language": "auto",
+      "status": "PASSED",
+      "extracted": {
+        "full_name": "Ali Raza",
+        "university": "COMSATS University Islamabad",
+        "degree": "Bachelor of Science",
+        "major": "Computer Science",
+        "graduation_year": 2022,
+        "issuer": "COMSATS University Islamabad",
+        "issue_date": "2022-07-15",
+        "is_verified": true
+      },
+      "issues": [],
+      "recommended_actions": [
+        "No action required — document verified automatically"
+      ],
+      "quality": {
+        "note": "PDF (digital text) — pixel quality checks skipped",
+        "issues": [],
+        "quality_score": 0.9,
+        "is_low_quality": false
+      },
+      "duplicate": {
+        "is_duplicate": false,
+        "similarity": 0.0,
+        "method": "dhash"
+      }
+    }
+  ]
+}

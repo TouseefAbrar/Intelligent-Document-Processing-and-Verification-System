@@ -1,0 +1,129 @@
+{
+  "report_id": "EEF-00006",
+  "generated_at": "2026-08-13T12:11:11.431750+00:00",
+  "submission_id": 6,
+  "applicant_ref": "DUPE-BATCH",
+  "status": "FAILED",
+  "completeness_score": 0.25,
+  "overall_confidence": 0.65,
+  "missing_documents": [
+    "degree",
+    "resume",
+    "transcript"
+  ],
+  "duplicate_documents": [
+    "scan_cnic.png"
+  ],
+  "summary": {
+    "status": "FAILED",
+    "completeness_score": 0.25,
+    "overall_confidence": 0.65,
+    "missing_documents": [
+      "degree",
+      "resume",
+      "transcript"
+    ],
+    "duplicate_documents": [
+      "scan_cnic.png"
+    ],
+    "documents_checked": 2,
+    "critical_documents": 1,
+    "flagged_documents": 0,
+    "applicant_name": null,
+    "documents_summary": "The applicant has submitted 2 documents, but the submission is incomplete with several critical documents missing. The overall confidence in the submission is 0.65.",
+    "highlights": [],
+    "concerns": [
+      "Multiple critical documents are missing, including degree, resume, and transcript",
+      "Duplicate document scan_cnic.png was submitted"
+    ],
+    "overall_comment": "The applicant's submission is incomplete and lacks several critical documents, which raises concerns about the validity of the application. Further review is necessary to determine the applicant's eligibility. The applicant should be requested to provide the missing documents.",
+    "recommended_action": "REVIEW"
+  },
+  "documents": [
+    {
+      "id": 25,
+      "file_name": "scan_cnic.png",
+      "doc_type": "cnic",
+      "doc_type_label": "CNIC",
+      "classification_confidence": 0.99,
+      "ocr_confidence": 0.8,
+      "ocr_provider": "tesseract",
+      "language": "en",
+      "status": "PASSED",
+      "extracted": {
+        "full_name": "Ayesha Khan",
+        "cnic": "35202-1234567-1",
+        "date_of_birth": "1998-08-15",
+        "address": "House 12, Street 5, F-10 Islamabad",
+        "issuer": "Government of Pakistan",
+        "document_number": "35202-1234567-1",
+        "is_verified": true,
+        "phone": "202-1234567",
+        "graduation_year": 1998
+      },
+      "issues": [],
+      "recommended_actions": [
+        "No action required — document verified automatically"
+      ],
+      "quality": {
+        "blur": 393.88,
+        "brightness": 234.43,
+        "contrast": 21.79,
+        "quality_score": 1.0,
+        "issues": [],
+        "is_low_quality": false
+      },
+      "duplicate": {
+        "is_duplicate": false,
+        "similarity": 0.0,
+        "method": "dhash"
+      }
+    },
+    {
+      "id": 26,
+      "file_name": "scan_cnic.png",
+      "doc_type": "cnic",
+      "doc_type_label": "CNIC",
+      "classification_confidence": 0.99,
+      "ocr_confidence": 0.8,
+      "ocr_provider": "tesseract",
+      "language": "en",
+      "status": "FAILED",
+      "extracted": {
+        "full_name": "Ayesha Khan",
+        "cnic": "35202-1234567-1",
+        "date_of_birth": "1998-08-15",
+        "address": "House 12, Street 5, F-10 Islamabad",
+        "issuer": "Government of Pakistan",
+        "document_number": "35202-1234567-1",
+        "is_verified": true,
+        "phone": "202-1234567",
+        "graduation_year": 1998
+      },
+      "issues": [
+        {
+          "field": "duplicate",
+          "message": "Possible duplicate upload (similarity 100%)",
+          "severity": "critical"
+        }
+      ],
+      "recommended_actions": [
+        "Request the applicant to re-upload a clear copy"
+      ],
+      "quality": {
+        "blur": 393.88,
+        "brightness": 234.43,
+        "contrast": 21.79,
+        "quality_score": 1.0,
+        "issues": [],
+        "is_low_quality": false
+      },
+      "duplicate": {
+        "is_duplicate": true,
+        "similarity": 1.0,
+        "matched_hash": "0600013011b00260007011702158269811600000000000000000000000000000",
+        "method": "dhash"
+      }
+    }
+  ]
+}

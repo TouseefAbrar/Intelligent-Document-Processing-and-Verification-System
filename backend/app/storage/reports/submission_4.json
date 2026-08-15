@@ -1,0 +1,131 @@
+{
+  "report_id": "EEF-00004",
+  "generated_at": "2026-08-14T10:46:24.393778+00:00",
+  "submission_id": 4,
+  "applicant_ref": "E2E-WRONG-DUP2",
+  "status": "FAILED",
+  "completeness_score": 0.0,
+  "overall_confidence": 0.0,
+  "missing_documents": [
+    "resume",
+    "cnic",
+    "offer_letter",
+    "degree",
+    "transcript"
+  ],
+  "duplicate_documents": [
+    "58092c8ba0104bb39599c7a9ac0ab7b9.pdf"
+  ],
+  "summary": {
+    "status": "FAILED",
+    "completeness_score": 0.0,
+    "overall_confidence": 0.0,
+    "missing_documents": [
+      "resume",
+      "cnic",
+      "offer_letter",
+      "degree",
+      "transcript"
+    ],
+    "duplicate_documents": [
+      "58092c8ba0104bb39599c7a9ac0ab7b9.pdf"
+    ],
+    "documents_checked": 2,
+    "critical_documents": 0,
+    "flagged_documents": 0,
+    "inconsistency_documents": 0,
+    "invalid_documents": 0,
+    "wrong_type_documents": 1,
+    "inconsistencies": [],
+    "applicant_name": null,
+    "documents_summary": "The applicant's document submission is incomplete, with multiple critical documents missing. The submission also contains a duplicate document and one document of the wrong type.",
+    "highlights": [],
+    "concerns": [
+      "Multiple critical documents are missing from the submission",
+      "A duplicate document was detected",
+      "One document is of the wrong type"
+    ],
+    "overall_comment": "The applicant's document submission is incomplete and contains errors, which raises significant concerns about the validity of the application. Further review is necessary to ensure the applicant meets the required criteria. The applicant should be requested to resubmit the required documents.",
+    "recommended_action": "REVIEW"
+  },
+  "documents": [
+    {
+      "id": 48,
+      "file_name": "38c6d5e2c30e417b8007802cbc8648a7.pdf",
+      "doc_type": "offer_letter",
+      "expected_doc_type": "cnic",
+      "doc_type_label": "Offer Letter",
+      "classification_confidence": 0.99,
+      "ocr_confidence": 0.95,
+      "ocr_provider": "pymupdf",
+      "language": "auto",
+      "status": "WRONG DOCUMENT TYPE",
+      "extracted": {},
+      "issues": [
+        {
+          "field": "doc_type",
+          "message": "Expected document: CNIC · Detected: Offer Letter",
+          "severity": "critical"
+        }
+      ],
+      "recommended_actions": [
+        "Upload the correct CNIC document"
+      ],
+      "quality": {
+        "blur": 2366.32,
+        "brightness": 228.79,
+        "contrast": 61.7,
+        "width": 1241,
+        "height": 1754,
+        "min_side": 1241,
+        "quality_score": 1.0,
+        "issues": [],
+        "is_blurry": false,
+        "is_low_quality": false,
+        "dpi": 96.0,
+        "note": "PDF pixel quality checked via first-page render"
+      },
+      "duplicate": {
+        "is_duplicate": false,
+        "similarity": 0.0,
+        "method": "sha256",
+        "matched_hash": "",
+        "matched_file": "",
+        "reason": ""
+      }
+    },
+    {
+      "id": 49,
+      "file_name": "58092c8ba0104bb39599c7a9ac0ab7b9.pdf",
+      "doc_type": "unknown",
+      "expected_doc_type": "offer_letter",
+      "doc_type_label": "Unknown",
+      "classification_confidence": 0.0,
+      "ocr_confidence": 0.0,
+      "ocr_provider": "",
+      "language": "en",
+      "status": "DUPLICATE",
+      "extracted": {},
+      "issues": [
+        {
+          "field": "duplicate",
+          "message": "Identical file content (SHA-256) already uploaded in this batch",
+          "severity": "critical"
+        }
+      ],
+      "recommended_actions": [
+        "Remove the duplicate upload",
+        "Keep 38c6d5e2c30e417b8007802cbc8648a7.pdf only"
+      ],
+      "quality": {},
+      "duplicate": {
+        "is_duplicate": true,
+        "similarity": 1.0,
+        "method": "sha256",
+        "matched_hash": "dce3675e6181a79c6c7c4a87889e7ff87d223617fc4bbf1697697ebee12414dc",
+        "matched_file": "38c6d5e2c30e417b8007802cbc8648a7.pdf",
+        "reason": "Identical file content (SHA-256) already uploaded in this batch"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# storage + caches
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# env & secrets
+.env
+*.env.local
+
+# database
+*.db
+*.sqlite3
+
+# storage artifacts
+app/storage/uploads/*
+app/storage/processed/*
+app/storage/reports/*
+!app/storage/uploads/.gitkeep
+!app/storage/processed/.gitkeep
+!app/storage/reports/.gitkeep
+
+# frontend
+node_modules/
+frontend/dist/
+
+# tooling
+.pytest_cache/
+.coverage
+.mypy_cache/
+.ruff_cache/
