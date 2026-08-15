@@ -1,6 +1,6 @@
 {
   "report_id": "EEF-00001",
-  "generated_at": "2026-08-15T08:51:10.889476+00:00",
+  "generated_at": "2026-08-15T11:37:53.214155+00:00",
   "submission_id": 1,
   "applicant_ref": "",
   "status": "FAILED",
@@ -32,9 +32,10 @@
     "documents_summary": "The submission has a completeness score of 0.6, indicating that some required documents are missing. Overall confidence in the submission is high at 0.9.",
     "highlights": [],
     "concerns": [
-      "Missing degree and transcript documents"
+      "Missing degree and transcript documents",
+      "Submission status is FAILED"
     ],
-    "overall_comment": "The submission has a high overall confidence score, but is incomplete due to missing critical documents. It is recommended to review the submission and request the missing documents.",
+    "overall_comment": "The submission has some critical issues that need to be addressed before it can be considered complete. It is recommended to review the submission and provide the missing documents.",
     "recommended_action": "REVIEW"
   },
   "documents": [
@@ -54,18 +55,8 @@
         "institute_phone": "0337 7777860",
         "joining_date": "06-Jul-2026",
         "ending_date": "04-Sep-2026",
-        "skills": [
-          "Artificial intelligence"
-        ],
-        "experience": [],
-        "certifications": [
-          "Pasha Certificate no : 2023/A0712",
-          "SECP : 0112788",
-          "CMMI Level : 3",
-          "NTN : 8502194-3"
-        ],
         "issuer": "Ezitech Institute",
-        "issue_date": "07-Jul-2026",
+        "issue_date": "2026-07-07",
         "document_number": "Intern-ID-ETI-31277-26/31277",
         "is_verified": true,
         "position": "Artificial intelligence"
@@ -97,7 +88,7 @@
       "forgery": {
         "detected": false,
         "level": "GREEN",
-        "score": 0.66,
+        "score": 0.53,
         "confidence": 1.0,
         "engine": "heuristics+llm",
         "signals": [
@@ -136,22 +127,22 @@
           "Error-Level Analysis (ELA): 22/1027 smooth regions show inconsistent re-save error — possible pasted or re-encoded region",
           "Noise consistency: Noise is consistent across the image — no obvious spliced regions",
           "Content validation: No content-level inconsistencies found",
-          "ELA warning due to possible pasted or re-encoded region",
+          "ELA analysis shows 22/1027 smooth regions with inconsistent re-save error, indicating possible pasted or re-encoded regions",
           "No editing-software trail found in PDF metadata",
-          "Noise is consistent across the image",
-          "No content-level inconsistencies found"
+          "Noise is consistent across the image, no obvious spliced regions",
+          "Content validation shows no inconsistencies"
         ],
         "note": "No forgery indicators detected.",
         "llm": {
-          "verdict": "GENUINE",
-          "confidence": 0.8,
+          "verdict": "SUSPICIOUS",
+          "confidence": 0.6,
           "notes": [
-            "ELA warning due to possible pasted or re-encoded region",
+            "ELA analysis shows 22/1027 smooth regions with inconsistent re-save error, indicating possible pasted or re-encoded regions",
             "No editing-software trail found in PDF metadata",
-            "Noise is consistent across the image",
-            "No content-level inconsistencies found"
+            "Noise is consistent across the image, no obvious spliced regions",
+            "Content validation shows no inconsistencies"
           ],
-          "recommended_action": "Verify with Ezitech Institute"
+          "recommended_action": "Request original document or further verification from issuer"
         }
       }
     },
@@ -161,7 +152,7 @@
       "doc_type": "resume",
       "expected_doc_type": "",
       "doc_type_label": "Resume",
-      "classification_confidence": 0.9,
+      "classification_confidence": 0.95,
       "ocr_confidence": 0.95,
       "ocr_provider": "pymupdf",
       "language": "auto",
@@ -171,37 +162,36 @@
         "email": "malak.touseef012@gmail.com",
         "phone": "+923438516207",
         "university": "University of Kotli",
-        "degree": "Bachelor of Science, Artificial Intelligence",
+        "degree": "Bachelor of Science",
         "major": "Artificial Intelligence",
         "graduation_year": 2027,
         "cgpa": 3.0,
         "skills": [
+          "Artificial Intelligence",
           "Machine Learning",
           "Deep Learning",
           "NLP",
           "Cyber Security",
-          "data-driven problem solving",
           "Python",
           "TensorFlow",
           "Flask",
-          "Streamlit"
+          "Streamlit",
+          "Computer Vision",
+          "Data Structures & Algorithms",
+          "Database Management"
         ],
         "experience": [
           {
-            "role": "Developed machine learning models using Python, performed data preprocessing and model evaluation, and worked on end-to-end ML workflows.",
-            "company": "Artificial intelligence, Code Alpha",
+            "role": null,
+            "company": "Code Alpha",
             "duration": "01May 2026 — 30May 2026"
           },
           {
-            "role": "Student Performance Prediction System, Laptop Price Prediction System, Language Translation Tool System, Object Detection and Tracking System",
-            "company": "Academic Projects, UOK",
+            "role": null,
+            "company": "UOK",
             "duration": "Apr 2024 — Dec 2025"
           }
         ],
-        "certifications": [],
-        "address": "Kotli, Azad Jammu & Kashmir",
-        "languages": [],
-        "issuer": "University of Kotli",
         "is_verified": true
       },
       "issues": [],
@@ -270,22 +260,22 @@
           "Error-Level Analysis (ELA): 38/1026 smooth regions show inconsistent re-save error — possible pasted or re-encoded region",
           "Noise consistency: Noise is consistent across the image — no obvious spliced regions",
           "Content validation: No content-level inconsistencies found",
-          "ELA warning (0.4) due to possible pasted or re-encoded region",
-          "Metadata clear, no editing-software trail found",
-          "Noise consistency clear, no obvious spliced regions",
-          "Content validation clear, no content-level inconsistencies found"
+          "ELA analysis shows 38/1026 smooth regions with inconsistent re-save error, indicating possible pasted or re-encoded regions",
+          "Resume contains unusually high number of skills and technologies for an undergraduate student",
+          "Experience duration at Code Alpha is very short (1 month), which may be unusual for a development role",
+          "No major red flags in metadata, noise consistency, or content validation"
         ],
         "note": "No forgery indicators detected.",
         "llm": {
-          "verdict": "GENUINE",
+          "verdict": "SUSPICIOUS",
           "confidence": 0.6,
           "notes": [
-            "ELA warning (0.4) due to possible pasted or re-encoded region",
-            "Metadata clear, no editing-software trail found",
-            "Noise consistency clear, no obvious spliced regions",
-            "Content validation clear, no content-level inconsistencies found"
+            "ELA analysis shows 38/1026 smooth regions with inconsistent re-save error, indicating possible pasted or re-encoded regions",
+            "Resume contains unusually high number of skills and technologies for an undergraduate student",
+            "Experience duration at Code Alpha is very short (1 month), which may be unusual for a development role",
+            "No major red flags in metadata, noise consistency, or content validation"
           ],
-          "recommended_action": "Verify applicant's claims through additional means"
+          "recommended_action": "Request additional verification or supporting documents to confirm the applicant's experience and qualifications"
         }
       }
     },
@@ -295,7 +285,7 @@
       "doc_type": "cnic",
       "expected_doc_type": "",
       "doc_type_label": "CNIC",
-      "classification_confidence": 1.0,
+      "classification_confidence": 0.99,
       "ocr_confidence": 0.8,
       "ocr_provider": "tesseract",
       "language": "en",
@@ -384,7 +374,7 @@
           "JPEG compression artifacts: Compression artifacts within normal range (blocking=0.30)",
           "Noise consistency: Noise is consistent across the image — no obvious spliced regions",
           "Content validation: No content-level inconsistencies found",
-          "No tampering signature detected by ELA",
+          "No obvious tampering signatures detected by ELA",
           "No editing-software trail found in metadata",
           "Compression artifacts within normal range",
           "Noise is consistent across the image",
@@ -395,13 +385,13 @@
           "verdict": "GENUINE",
           "confidence": 0.9,
           "notes": [
-            "No tampering signature detected by ELA",
+            "No obvious tampering signatures detected by ELA",
             "No editing-software trail found in metadata",
             "Compression artifacts within normal range",
             "Noise is consistent across the image",
             "No content-level inconsistencies found"
           ],
-          "recommended_action": "Verify document authenticity through NADRA"
+          "recommended_action": "Verify CNIC authenticity with NADRA"
         }
       }
     }

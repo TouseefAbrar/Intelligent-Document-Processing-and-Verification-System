@@ -1,588 +1,75 @@
 {
   "report_id": "EEF-00002",
-  "generated_at": "2026-08-15T08:10:54.422987+00:00",
+  "generated_at": "2026-08-15T11:26:37.992628+00:00",
   "submission_id": 2,
   "applicant_ref": "",
   "status": "FAILED",
-  "completeness_score": 0.8,
-  "overall_confidence": 0.763,
+  "completeness_score": 0.0,
+  "overall_confidence": 0.0,
   "missing_documents": [
-    "degree"
+    "resume",
+    "cnic",
+    "offer_letter",
+    "degree",
+    "transcript"
   ],
   "duplicate_documents": [],
   "summary": {
     "status": "FAILED",
-    "completeness_score": 0.8,
-    "overall_confidence": 0.763,
+    "completeness_score": 0.0,
+    "overall_confidence": 0.0,
     "missing_documents": [
-      "degree"
+      "resume",
+      "cnic",
+      "offer_letter",
+      "degree",
+      "transcript"
     ],
     "duplicate_documents": [],
-    "documents_checked": 4,
+    "documents_checked": 1,
     "critical_documents": 0,
-    "flagged_documents": 4,
+    "flagged_documents": 0,
     "inconsistency_documents": 0,
-    "invalid_documents": 0,
+    "invalid_documents": 1,
     "wrong_type_documents": 0,
     "forgery_documents": 0,
-    "inconsistencies": [
-      {
-        "field": "full_name",
-        "field_label": "Name",
-        "document_a": "OfferLetter_Touseef_Abrar.pdf",
-        "document_a_id": 41,
-        "value_a": "Touseef Abrar",
-        "document_b": "Transcription.pdf",
-        "document_b_id": 44,
-        "value_b": "ANAS KHAN",
-        "expected": "Matching name information across documents",
-        "actual": "Different values",
-        "severity": "critical"
-      },
-      {
-        "field": "degree",
-        "field_label": "Degree/Program",
-        "document_a": "Touseef_Abrar cv.pdf",
-        "document_a_id": 42,
-        "value_a": "Bachelor of Science",
-        "document_b": "Transcription.pdf",
-        "document_b_id": 44,
-        "value_b": "Bachelor of Science in Artificial Intelligence",
-        "expected": "Matching degree/program information across documents",
-        "actual": "Different values",
-        "severity": "warning"
-      }
-    ],
+    "inconsistencies": [],
     "applicant_name": null,
-    "documents_summary": "The applicant has submitted 4 documents, but the submission is incomplete with a degree document missing. The overall confidence in the submitted documents is 76.3%.",
-    "highlights": [
-      "The applicant has submitted a significant number of documents, with 4 documents checked.",
-      "There are no duplicate, invalid, or wrong type documents found in the submission."
-    ],
+    "documents_summary": "The applicant has failed to submit the required documents, resulting in a completeness score of 0.0. The submission is incomplete and lacks essential documents such as resume, CNIC, offer letter, degree, and transcript.",
+    "highlights": [],
     "concerns": [
-      "The submission is incomplete, with a critical degree document missing.",
-      "All 4 submitted documents have been flagged for review, indicating potential issues."
+      "Missing required documents",
+      "Invalid document detected"
     ],
-    "overall_comment": "The applicant's document submission is incomplete and has raised several concerns, including missing and flagged documents. Further review is necessary to ensure the authenticity and completeness of the submission. The applicant should be requested to provide the missing degree document and clarify the issues with the flagged documents.",
-    "recommended_action": "REVIEW"
+    "overall_comment": "The applicant's submission is incomplete and does not meet the requirements. The lack of essential documents and the presence of an invalid document raise significant concerns. Further review and resubmission of the required documents are necessary.",
+    "recommended_action": "REJECT"
   },
   "documents": [
     {
-      "id": 41,
-      "file_name": "OfferLetter_Touseef_Abrar.pdf",
-      "doc_type": "offer_letter",
-      "expected_doc_type": "",
-      "doc_type_label": "Offer Letter",
-      "classification_confidence": 0.99,
-      "ocr_confidence": 0.95,
-      "ocr_provider": "pymupdf",
-      "language": "auto",
-      "status": "FLAGGED",
-      "extracted": {
-        "full_name": "Touseef Abrar",
-        "institute_phone": "0337 7777860",
-        "joining_date": "06-Jul-2026",
-        "ending_date": "04-Sep-2026",
-        "issuer": "Ezitech Institute",
-        "issue_date": "2026-07-07",
-        "document_number": "Intern-ID-ETI-31277-26/31277",
-        "is_verified": true,
-        "position": "Artificial intelligence"
-      },
-      "issues": [
-        {
-          "field": "forgery",
-          "message": "Possible forged or edited document — Suspicious forensic signals — manual review recommended.",
-          "severity": "warning"
-        }
-      ],
-      "recommended_actions": [
-        "Manual review recommended before approval"
-      ],
-      "quality": {
-        "blur": 2366.32,
-        "brightness": 228.79,
-        "contrast": 61.7,
-        "width": 1241,
-        "height": 1754,
-        "quality_score": 1.0,
-        "issues": [],
-        "is_blurry": false,
-        "dpi": 96.0,
-        "note": "PDF pixel quality checked via first-page render"
-      },
-      "duplicate": {
-        "is_duplicate": false,
-        "similarity": 0.0,
-        "method": "sha256",
-        "matched_hash": "",
-        "matched_file": "",
-        "reason": ""
-      },
-      "forgery": {
-        "detected": false,
-        "level": "YELLOW",
-        "score": 0.7,
-        "confidence": 1.0,
-        "engine": "heuristics+llm",
-        "signals": [
-          {
-            "name": "metadata",
-            "label": "PDF metadata trail",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No editing-software trail found in PDF metadata"
-          },
-          {
-            "name": "ela",
-            "label": "Error-Level Analysis (ELA)",
-            "result": "suspicious",
-            "score": 0.7,
-            "detail": "Unusual error-level variation — possible tampering"
-          },
-          {
-            "name": "metadata",
-            "label": "Metadata & editing trail",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No editing-software trail found in metadata"
-          },
-          {
-            "name": "noise",
-            "label": "Noise consistency",
-            "result": "clear",
-            "score": 0.023,
-            "detail": "Noise is consistent across the image — no obvious spliced regions"
-          },
-          {
-            "name": "content",
-            "label": "Content validation",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No content-level inconsistencies found",
-            "decisive": false
-          }
-        ],
-        "summary": [
-          "PDF metadata trail: No editing-software trail found in PDF metadata",
-          "Error-Level Analysis (ELA): Unusual error-level variation — possible tampering",
-          "Metadata & editing trail: No editing-software trail found in metadata",
-          "Noise consistency: Noise is consistent across the image — no obvious spliced regions",
-          "Content validation: No content-level inconsistencies found",
-          "ELA analysis indicates unusual error-level variation, possibly due to tampering",
-          "No editing-software trail found in PDF metadata",
-          "Noise is consistent across the image, no obvious spliced regions",
-          "Content validation did not find any inconsistencies",
-          "Document layout and content appear to be consistent with a genuine offer letter"
-        ],
-        "note": "Suspicious forensic signals — manual review recommended.",
-        "llm": {
-          "verdict": "SUSPICIOUS",
-          "confidence": 0.7,
-          "notes": [
-            "ELA analysis indicates unusual error-level variation, possibly due to tampering",
-            "No editing-software trail found in PDF metadata",
-            "Noise is consistent across the image, no obvious spliced regions",
-            "Content validation did not find any inconsistencies",
-            "Document layout and content appear to be consistent with a genuine offer letter"
-          ],
-          "recommended_action": "Request additional verification or supporting documents from the applicant"
-        }
-      }
-    },
-    {
-      "id": 42,
+      "id": 38,
       "file_name": "Touseef_Abrar cv.pdf",
-      "doc_type": "resume",
+      "doc_type": "unknown",
       "expected_doc_type": "",
-      "doc_type_label": "Resume",
-      "classification_confidence": 0.95,
-      "ocr_confidence": 0.95,
-      "ocr_provider": "pymupdf",
-      "language": "auto",
-      "status": "FLAGGED",
-      "extracted": {
-        "full_name": "Touseef Abrar",
-        "email": "malak.touseef012@gmail.com",
-        "phone": "+923438516207",
-        "university": "University of Kotli",
-        "degree": "Bachelor of Science",
-        "major": "Artificial Intelligence",
-        "graduation_year": 2027,
-        "cgpa": 3.0,
-        "skills": [
-          "Machine Learning",
-          "Deep Learning",
-          "NLP",
-          "Cyber Security",
-          "Python",
-          "TensorFlow",
-          "Flask",
-          "Streamlit"
-        ],
-        "experience": [
-          {
-            "role": null,
-            "company": "Code Alpha",
-            "duration": "01May 2026 — 30May 2026"
-          },
-          {
-            "role": null,
-            "company": "UOK",
-            "duration": "Apr 2024 — Dec 2025"
-          }
-        ],
-        "is_verified": true
-      },
-      "issues": [
-        {
-          "field": "forgery",
-          "message": "Possible forged or edited document — Suspicious forensic signals — manual review recommended.",
-          "severity": "warning"
-        }
-      ],
-      "recommended_actions": [
-        "Manual review recommended before approval"
-      ],
-      "quality": {
-        "blur": 4479.7,
-        "brightness": 244.06,
-        "contrast": 42.72,
-        "width": 1242,
-        "height": 1757,
-        "quality_score": 1.0,
-        "issues": [],
-        "is_blurry": false,
-        "dpi": 96.0,
-        "note": "PDF pixel quality checked via first-page render"
-      },
-      "duplicate": {
-        "is_duplicate": false,
-        "similarity": 0.0,
-        "method": "sha256",
-        "matched_hash": "",
-        "matched_file": "",
-        "reason": ""
-      },
-      "forgery": {
-        "detected": false,
-        "level": "YELLOW",
-        "score": 0.665,
-        "confidence": 1.0,
-        "engine": "heuristics+llm",
-        "signals": [
-          {
-            "name": "metadata",
-            "label": "PDF metadata trail",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No editing-software trail found in PDF metadata"
-          },
-          {
-            "name": "ela",
-            "label": "Error-Level Analysis (ELA)",
-            "result": "suspicious",
-            "score": 0.7,
-            "detail": "Unusual error-level variation — possible tampering"
-          },
-          {
-            "name": "metadata",
-            "label": "Metadata & editing trail",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No editing-software trail found in metadata"
-          },
-          {
-            "name": "noise",
-            "label": "Noise consistency",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "Noise is consistent across the image — no obvious spliced regions"
-          },
-          {
-            "name": "content",
-            "label": "Content validation",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No content-level inconsistencies found",
-            "decisive": false
-          }
-        ],
-        "summary": [
-          "PDF metadata trail: No editing-software trail found in PDF metadata",
-          "Error-Level Analysis (ELA): Unusual error-level variation — possible tampering",
-          "Metadata & editing trail: No editing-software trail found in metadata",
-          "Noise consistency: Noise is consistent across the image — no obvious spliced regions",
-          "Content validation: No content-level inconsistencies found",
-          "ELA analysis indicates unusual error-level variation, suggesting possible tampering",
-          "No editing-software trail found in PDF metadata",
-          "Noise is consistent across the image, with no obvious spliced regions",
-          "Content validation did not find any content-level inconsistencies",
-          "Graduation year is in the future (2027), which may indicate an incomplete or inaccurate document"
-        ],
-        "note": "Suspicious forensic signals — manual review recommended.",
-        "llm": {
-          "verdict": "SUSPICIOUS",
-          "confidence": 0.6,
-          "notes": [
-            "ELA analysis indicates unusual error-level variation, suggesting possible tampering",
-            "No editing-software trail found in PDF metadata",
-            "Noise is consistent across the image, with no obvious spliced regions",
-            "Content validation did not find any content-level inconsistencies",
-            "Graduation year is in the future (2027), which may indicate an incomplete or inaccurate document"
-          ],
-          "recommended_action": "Request additional verification or supporting documents to confirm the applicant's credentials"
-        }
-      }
-    },
-    {
-      "id": 43,
-      "file_name": "Touseef_Abrar ID Card.jpeg",
-      "doc_type": "cnic",
-      "expected_doc_type": "",
-      "doc_type_label": "CNIC",
-      "classification_confidence": 0.99,
-      "ocr_confidence": 0.8,
-      "ocr_provider": "tesseract",
+      "doc_type_label": "Unknown",
+      "classification_confidence": 0.0,
+      "ocr_confidence": 0.0,
+      "ocr_provider": "",
       "language": "en",
-      "status": "FLAGGED",
-      "extracted": {
-        "full_name": "Touseef Abrar",
-        "cnic": "81203-8463357-1",
-        "date_of_birth": "2004-03-01",
-        "issuer": "National Database and Registration Authority (NADRA), Islamic Republic of Pakistan",
-        "issue_date": "2023-01-23",
-        "expiry_date": "2033-01-23",
-        "document_number": "81203-8463357-1",
-        "is_verified": true,
-        "father_name": "Abrar Ahmed"
-      },
+      "status": "INVALID FILE TYPE",
+      "extracted": {},
       "issues": [
         {
-          "field": "forgery",
-          "message": "Possible forged or edited document — Suspicious forensic signals — manual review recommended.",
-          "severity": "warning"
+          "field": "file_type",
+          "message": "File is corrupt or could not be read as a document",
+          "severity": "critical"
         }
       ],
       "recommended_actions": [
-        "Manual review recommended before approval"
+        "Upload a supported file (PDF, JPG, JPEG or PNG)"
       ],
-      "quality": {
-        "blur": 269.19,
-        "brightness": 214.85,
-        "contrast": 56.09,
-        "width": 1080,
-        "height": 679,
-        "quality_score": 1.0,
-        "issues": [],
-        "is_blurry": false
-      },
-      "duplicate": {
-        "is_duplicate": false,
-        "similarity": 0.0,
-        "method": "dhash",
-        "matched_hash": "",
-        "matched_file": "",
-        "reason": ""
-      },
-      "forgery": {
-        "detected": false,
-        "level": "YELLOW",
-        "score": 0.7,
-        "confidence": 1.0,
-        "engine": "heuristics+llm",
-        "signals": [
-          {
-            "name": "ela",
-            "label": "Error-Level Analysis (ELA)",
-            "result": "suspicious",
-            "score": 0.7,
-            "detail": "Unusual error-level variation — possible tampering"
-          },
-          {
-            "name": "metadata",
-            "label": "Metadata & editing trail",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No editing-software trail found in metadata"
-          },
-          {
-            "name": "compression",
-            "label": "JPEG compression artifacts",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "Compression artifacts within normal range (blocking=0.30)"
-          },
-          {
-            "name": "noise",
-            "label": "Noise consistency",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "Noise is consistent across the image — no obvious spliced regions"
-          },
-          {
-            "name": "content",
-            "label": "Content validation",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No content-level inconsistencies found",
-            "decisive": false
-          }
-        ],
-        "summary": [
-          "Error-Level Analysis (ELA): Unusual error-level variation — possible tampering",
-          "Metadata & editing trail: No editing-software trail found in metadata",
-          "JPEG compression artifacts: Compression artifacts within normal range (blocking=0.30)",
-          "Noise consistency: Noise is consistent across the image — no obvious spliced regions",
-          "Content validation: No content-level inconsistencies found",
-          "ELA analysis indicates unusual error-level variation, suggesting possible tampering",
-          "No editing-software trail found in metadata",
-          "Compression artifacts within normal range",
-          "Noise is consistent across the image",
-          "Content validation did not find any inconsistencies"
-        ],
-        "note": "Suspicious forensic signals — manual review recommended.",
-        "llm": {
-          "verdict": "SUSPICIOUS",
-          "confidence": 0.7,
-          "notes": [
-            "ELA analysis indicates unusual error-level variation, suggesting possible tampering",
-            "No editing-software trail found in metadata",
-            "Compression artifacts within normal range",
-            "Noise is consistent across the image",
-            "Content validation did not find any inconsistencies"
-          ],
-          "recommended_action": "Request a physical verification of the document or further investigation"
-        }
-      }
-    },
-    {
-      "id": 44,
-      "file_name": "Transcription.pdf",
-      "doc_type": "transcript",
-      "expected_doc_type": "",
-      "doc_type_label": "Transcript",
-      "classification_confidence": 1.0,
-      "ocr_confidence": 0.95,
-      "ocr_provider": "pymupdf",
-      "language": "auto",
-      "status": "FLAGGED",
-      "extracted": {
-        "full_name": "ANAS KHAN",
-        "degree": "Bachelor of Science in Artificial Intelligence",
-        "major": "Artificial Intelligence",
-        "cgpa": 3.64,
-        "issue_date": "2026-08-07",
-        "document_number": "5111323034",
-        "is_verified": false,
-        "skills": [
-          "machine learning",
-          "communication"
-        ]
-      },
-      "issues": [
-        {
-          "field": "forgery",
-          "message": "Possible forged or edited document — Suspicious forensic signals — manual review recommended.",
-          "severity": "warning"
-        },
-        {
-          "field": "university",
-          "message": "Missing/invalid: university",
-          "severity": "warning"
-        }
-      ],
-      "recommended_actions": [
-        "Manual review recommended before approval"
-      ],
-      "quality": {
-        "blur": 8187.81,
-        "brightness": 237.87,
-        "contrast": 54.83,
-        "width": 1275,
-        "height": 1650,
-        "quality_score": 1.0,
-        "issues": [],
-        "is_blurry": false,
-        "dpi": 96.0,
-        "note": "PDF pixel quality checked via first-page render"
-      },
-      "duplicate": {
-        "is_duplicate": false,
-        "similarity": 0.0,
-        "method": "sha256",
-        "matched_hash": "",
-        "matched_file": "",
-        "reason": ""
-      },
-      "forgery": {
-        "detected": false,
-        "level": "YELLOW",
-        "score": 0.7,
-        "confidence": 1.0,
-        "engine": "heuristics+llm",
-        "signals": [
-          {
-            "name": "metadata",
-            "label": "PDF metadata trail",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No editing-software trail found in PDF metadata"
-          },
-          {
-            "name": "ela",
-            "label": "Error-Level Analysis (ELA)",
-            "result": "suspicious",
-            "score": 0.7,
-            "detail": "Unusual error-level variation — possible tampering"
-          },
-          {
-            "name": "metadata",
-            "label": "Metadata & editing trail",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No editing-software trail found in metadata"
-          },
-          {
-            "name": "noise",
-            "label": "Noise consistency",
-            "result": "clear",
-            "score": 0.088,
-            "detail": "Noise is consistent across the image — no obvious spliced regions"
-          },
-          {
-            "name": "content",
-            "label": "Content validation",
-            "result": "clear",
-            "score": 0.0,
-            "detail": "No content-level inconsistencies found",
-            "decisive": false
-          }
-        ],
-        "summary": [
-          "PDF metadata trail: No editing-software trail found in PDF metadata",
-          "Error-Level Analysis (ELA): Unusual error-level variation — possible tampering",
-          "Metadata & editing trail: No editing-software trail found in metadata",
-          "Noise consistency: Noise is consistent across the image — no obvious spliced regions",
-          "Content validation: No content-level inconsistencies found",
-          "ELA analysis indicates unusual error-level variation, suggesting possible tampering",
-          "No editing-software trail found in PDF metadata",
-          "Noise is consistent across the image, but ELA result raises suspicion",
-          "Content validation did not find any inconsistencies, but forensic signals indicate potential forgery"
-        ],
-        "note": "Suspicious forensic signals — manual review recommended.",
-        "llm": {
-          "verdict": "SUSPICIOUS",
-          "confidence": 0.7,
-          "notes": [
-            "ELA analysis indicates unusual error-level variation, suggesting possible tampering",
-            "No editing-software trail found in PDF metadata",
-            "Noise is consistent across the image, but ELA result raises suspicion",
-            "Content validation did not find any inconsistencies, but forensic signals indicate potential forgery"
-          ],
-          "recommended_action": "Request original document or further verification from the issuing institution"
-        }
-      }
+      "quality": {},
+      "duplicate": {},
+      "forgery": {}
     }
   ]
 }
