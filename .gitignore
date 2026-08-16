@@ -22,6 +22,13 @@ app/storage/data/*
 !app/storage/uploads/.gitkeep
 !app/storage/processed/.gitkeep
 !app/storage/reports/.gitkeep
+backend/app/storage/uploads/*
+backend/app/storage/processed/*
+backend/app/storage/reports/*
+backend/app/storage/data/*
+!backend/app/storage/uploads/.gitkeep
+!backend/app/storage/processed/.gitkeep
+!backend/app/storage/reports/.gitkeep
 
 # frontend
 node_modules/
