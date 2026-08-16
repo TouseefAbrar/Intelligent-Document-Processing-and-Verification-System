@@ -18,6 +18,7 @@ venv/
 app/storage/uploads/*
 app/storage/processed/*
 app/storage/reports/*
+app/storage/data/*
 !app/storage/uploads/.gitkeep
 !app/storage/processed/.gitkeep
 !app/storage/reports/.gitkeep
@@ -25,6 +26,7 @@ app/storage/reports/*
 # frontend
 node_modules/
 frontend/dist/
+*.tsbuildinfo
 
 # tooling
 .pytest_cache/
