@@ -233,7 +233,7 @@ export function OcrRadar({ rows }: { rows: SubmissionListRow[] }) {
   );
 }
 
-export function CompletionGauge({ pct, label }: { pct: number; label: string }) {
+export function CompletionGauge({ pct, label, display }: { pct: number; label: string; display?: string | number }) {
   const value = Math.max(0, Math.min(100, Math.round(pct * 100)));
   const fill = pct >= 0.75 ? C.emerald : pct >= 0.5 ? C.amber : C.rose;
   // A single-slice Pie fills the WHOLE arc no matter its value, so the filled
@@ -255,7 +255,7 @@ export function CompletionGauge({ pct, label }: { pct: number; label: string }) 
       </ResponsiveContainer>
       <div style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', pointerEvents: 'none' }}>
         <div style={{ textAlign: 'center' }}>
-          <div className="kpi-value" style={{ fontSize: 24 }}>{value}%</div>
+          <div className="kpi-value" style={{ fontSize: 24 }}>{display ?? `${value}%`}</div>
           <div className="muted" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 1 }}>{label}</div>
         </div>
       </div>

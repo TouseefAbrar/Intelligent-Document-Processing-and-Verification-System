@@ -38,6 +38,7 @@ export interface Metrics {
   failRate: number;
   rejectedRate: number;
   autoApproveRate: number;
+  autoVerifiedDocs: number;
   avgCompleteness: number;
   avgConfidence: number;
   duplicatesDetected: number;
@@ -202,6 +203,7 @@ export function computeMetrics(rows: SubmissionListRow[]): Metrics {
     failRate: processed ? failedDocs / processed : 0,
     rejectedRate: totalDocuments ? rejectedDocs / totalDocuments : 0,
     autoApproveRate: totalSubmissions ? passedSubs / totalSubmissions : 0,
+    autoVerifiedDocs: passedDocs,
     avgCompleteness: totalSubmissions ? sumCompleteness / totalSubmissions : 0,
     avgConfidence: totalSubmissions ? sumConfidence / totalSubmissions : 0,
     duplicatesDetected,

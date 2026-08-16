@@ -11,7 +11,6 @@ import {
   FileWarning,
   Gauge,
   LayoutDashboard,
-  LogOut,
   Menu,
   RefreshCw,
   ScanSearch,
@@ -22,8 +21,6 @@ import {
 } from 'lucide-react';
 import { api, type DocumentDetail, type SubmissionDetail, type SubmissionListRow } from './api/client';
 import { computeMetrics, docColor, docLabel, formatBytes, formatPct, listDocs, timeAgo } from './api/analytics';
-import { clearSession, getSession, initialsOf, type AuthUser } from './auth';
-import LoginPage from './pages/LoginPage';
 import { UploadZone } from './components/UploadZone';
 import { StatCard } from './components/StatCard';
 import { StatusBadge } from './components/StatusBadge';
@@ -64,7 +61,6 @@ interface ConfirmTarget {
 type SortKey = 'id' | 'applicant_ref' | 'created_at' | 'completeness_score' | 'overall_confidence' | 'status';
 
 export default function App() {
-  const [user, setUser] = useState<AuthUser | null>(() => getSession());
   const [health, setHealth] = useState<Awaited<ReturnType<typeof api.health>> | null>(null);
   const [rows, setRows] = useState<SubmissionListRow[]>([]);
   const [loading, setLoading] = useState(true);
@@ -103,12 +99,12 @@ export default function App() {
     }
   }, []);
 
-  useEffect(() => { if (user) loadAll(); }, [loadAll, user]);
+  useEffect(() => { loadAll(); }, [loadAll]);
   useEffect(() => {
     const id = setInterval(() => setNow(new Date()), 1000);
-    const h = setInterval(() => { if (user) api.health().then(setHealth).catch(() => undefined); }, 30000);
+    const h = setInterval(() => { api.health().then(setHealth).catch(() => undefined); }, 30000);
     return () => { clearInterval(id); clearInterval(h); };
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     if (phase === 'uploading') {
@@ -200,19 +196,6 @@ export default function App() {
 
   const goView = (v: View) => { setView(v); setNavOpen(false); window.scrollTo({ top: 0 }); };
 
-  const handleLogout = () => {
-    clearSession();
-    setUser(null);
-    setDrawer(null);
-    setInspector(null);
-    setConfirm(null);
-    setView('overview');
-  };
-
-  if (!user) {
-    return <LoginPage onAuthed={setUser} />;
-  }
-
   const toggleSort = (key: SortKey) => {
     setSort((s) => (s.key === key ? { key, dir: s.dir === 1 ? -1 : 1 } : { key, dir: key === 'id' ? -1 : 1 }));
   };
@@ -241,7 +224,7 @@ export default function App() {
         <div className="brand">
           <div className="logo">EEF</div>
           <div>
-            <h1>Verity.AI</h1>
+            <h1>EZITECH</h1>
             <div className="tag">IDP Verification Engine</div>
           </div>
         </div>
@@ -254,20 +237,10 @@ export default function App() {
         ))}
 
         <div className="sidebar-footer">
-          <div className="user-chip">
-            <div className="user-avatar">{initialsOf(user.name)}</div>
-            <div className="user-meta">
-              <div className="user-name">{user.name}</div>
-              <div className="user-mail">{user.email}</div>
-            </div>
-            <button className="user-logout" title="Sign out" onClick={handleLogout}>
-              <LogOut size={15} />
-            </button>
-          </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <Clock size={12} /> {now.toLocaleTimeString()}
           </div>
-          <div style={{ marginTop: 6 }}>AI-004 · EEF · v{health?.version ?? '—'}</div>
+          <div style={{ marginTop: 6 }}>EEF Developed by Touseef Abrar</div>
         </div>
       </aside>
 
@@ -275,18 +248,22 @@ export default function App() {
 
       <main className="main">
         <div className="topbar">
-          <div className="topbar-title">
-            <h2>{VIEW_TITLE[view].t}</h2>
-            <p>{VIEW_TITLE[view].s}</p>
-          </div>
-          <div className="topbar-right">
-            <EnginePulse health={health} />
-            <button className="icon-btn view" title="Refresh" onClick={() => { setLoading(true); loadAll(); }}>
-              <RefreshCw size={16} className={loading ? 'spin-slow' : ''} />
-            </button>
-            <button className="icon-btn menu-btn" title="Menu" onClick={() => setNavOpen(!navOpen)}>
-              <Menu size={16} />
-            </button>
+          <div className="topbar-hero">Intelligent Document Processing and Verification System</div>
+          <div className="topbar-divider" />
+          <div className="topbar-row">
+            <div className="topbar-title">
+              <h2>{VIEW_TITLE[view].t}</h2>
+              <p>{VIEW_TITLE[view].s}</p>
+            </div>
+            <div className="topbar-right">
+              <EnginePulse health={health} />
+              <button className="icon-btn view" title="Refresh" onClick={() => { setLoading(true); loadAll(); }}>
+                <RefreshCw size={16} className={loading ? 'spin-slow' : ''} />
+              </button>
+              <button className="icon-btn menu-btn" title="Menu" onClick={() => setNavOpen(!navOpen)}>
+                <Menu size={16} />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -584,8 +561,8 @@ export default function App() {
               </div>
               <div className="panel chart-card">
                 <h3 className="panel-title"><span className="chart-title-icon"><BarChart3 size={15} /></span> Auto-approval gauge</h3>
-                <div className="panel-sub">Share of submissions passing without human review</div>
-                <CompletionGauge pct={metrics.autoApproveRate} label="auto-approval" />
+                <div className="panel-sub">Documents auto-verified by the engine without manual review</div>
+                <CompletionGauge pct={metrics.passRate} display={metrics.autoVerifiedDocs} label="docs auto-verified" />
               </div>
             </div>
 
@@ -622,7 +599,7 @@ export default function App() {
           </div>
         )}
 
-        <footer>EEF · Intelligent Document Processing &amp; Verification Engine · AI-004 Case Study</footer>
+        <footer>EEF · Intelligent Document Processing &amp; Verification System · Developed by Touseef Abrar</footer>
       </main>
 
       {drawer && (
